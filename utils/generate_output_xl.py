@@ -1,5 +1,6 @@
 import xlsxwriter
 
+
 def generate_excel(key, url, test, test_results, filename="test_results.xlsx"):
     """
     Generates an Excel file summarizing the test results.
@@ -27,5 +28,5 @@ def generate_excel(key, url, test, test_results, filename="test_results.xlsx"):
         worksheet.write(row_idx, 3, test)
         worksheet.write(row_idx, 4, result.get("status", "Unknown"))
         worksheet.write(row_idx, 5, result.get("message", "No message"))
-        
+
     workbook.close()

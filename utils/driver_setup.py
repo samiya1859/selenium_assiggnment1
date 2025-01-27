@@ -1,10 +1,25 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
 
 def setup_driver():
-    # WebDriver setup
-    chromedriver_path = "/home/w3e11/Downloads/chromedriver-linux64/chromedriver"
-    service = Service(chromedriver_path)
-    driver = webdriver.Chrome(service=service)
-    
+    """
+    Set up and configure the Chrome WebDriver with optimal settings.
+
+    Returns:
+        webdriver: Configured Chrome WebDriver instance
+    """
+    chrome_options = Options()
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.implicitly_wait(10)
+
     return driver
