@@ -2,8 +2,6 @@ from utils.driver_setup import setup_driver
 from utils.generate_output_xl import generate_excel
 from tests.search_location import test_search_location
 from tests.date_picking import select_dates_from_calendar
-
-# from tests.property_tile_selection import click_property_tiles
 from tests.property_traversing import click_property_tiles
 
 

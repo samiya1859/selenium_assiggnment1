@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .data_avaibility import perform_actions_on_new_tab, check_page_layout
-
+from .data_availability import perform_actions_on_new_tab, check_page_layout
 from utils.read_locators import read_locators
 import time
 

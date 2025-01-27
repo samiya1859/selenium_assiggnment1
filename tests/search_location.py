@@ -1,5 +1,4 @@
 import time
-import warnings
 import random
 from faker import Faker
 from utils.read_locators import read_locators
@@ -7,13 +6,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 fake = Faker()
 locators = read_locators()
 
 
 # Helper method to wait for an element
-def wait_for_element(driver, xpath, timeout=10):
+def wait_for_element(driver, xpath, timeout=7):
     """
     Wait for an element to be present in the DOM.
 
@@ -121,7 +120,7 @@ def test_search_location(driver):
 
         # Try to select a suggestion
         if select_and_click_suggestion(
-            WebDriverWait(driver, 10), suggestions_list, search_input
+            WebDriverWait(driver, 5), suggestions_list, search_input
         ):
             selected_location = search_input.get_attribute("value")
             return selected_location  # Exit early if successful
